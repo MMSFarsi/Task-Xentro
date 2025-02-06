@@ -3,14 +3,14 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const UserDetails = () => {
-    const {id} = useParams();
+    const { id } = useParams();
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
     useEffect(() => {
         axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
             .then((res) => setUser(res.data))
     }
-    , [id]);
+        , [id]);
 
     if (!user) {
         return <p>No User Found</p>;
@@ -29,9 +29,7 @@ const UserDetails = () => {
                 </p>
                 <p className="mb-4"><span className="font-semibold">Company:</span> {user.company.name}</p>
             </div>
-            <button onClick={() => navigate(-1)}
-                className="mt-6 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300"
-            >
+            <button onClick={() => navigate(-1)}className="btn mt-3  btn-primary">
                 Go Back
             </button>
         </div>
