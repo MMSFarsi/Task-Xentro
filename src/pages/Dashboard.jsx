@@ -9,7 +9,7 @@ const Dashboard = () => {
     <div className="w-64 h-screen bg-gray-800 text-white p-6">
       <h2 className="text-2xl font-bold mb-4">Admin Dashboard</h2>
       <nav>
-        <NavLink to="/users" className={linkClass} activeClassName="bg-blue-700">
+        <NavLink to="/alluser" className={linkClass} activeClassName="bg-blue-700">
           All Users
         </NavLink>
         <NavLink to="/products" className={linkClass} activeClassName="bg-blue-700">
