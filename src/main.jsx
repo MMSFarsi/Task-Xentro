@@ -5,6 +5,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainLayout from './layout/MainLayout';
 import ALlUser from './pages/ALlUser';
 import UserDetails from './pages/UserDetails';
+import AllProducts from './pages/AllProducts';
+import ProductDetails from './pages/ProductDetails';
 
 
 const router = createBrowserRouter([
@@ -21,6 +23,15 @@ const router = createBrowserRouter([
       {
         path:"/users/:id" ,
         element:<UserDetails></UserDetails>
+      },
+      {
+        path:"/products" ,
+        element:<AllProducts></AllProducts>,
+        loader:()=> fetch('https://api.restful-api.dev/objects')
+      },
+      {
+        path:"/product/:id" ,
+        element:<ProductDetails></ProductDetails>
       },
     ]
   },
