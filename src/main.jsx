@@ -3,8 +3,8 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainLayout from './layout/MainLayout';
-import Dashboard from './pages/Dashboard';
 import ALlUser from './pages/ALlUser';
+import UserDetails from './pages/UserDetails';
 
 
 const router = createBrowserRouter([
@@ -17,7 +17,11 @@ const router = createBrowserRouter([
         path:"/alluser",
         element:<ALlUser></ALlUser>,
         loader:()=> fetch('https://jsonplaceholder.typicode.com/users')
-      }
+      },
+      {
+        path:"/users/:id" ,
+        element:<UserDetails></UserDetails>
+      },
     ]
   },
 ]);

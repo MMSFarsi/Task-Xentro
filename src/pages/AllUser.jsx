@@ -1,7 +1,8 @@
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData, useNavigate } from 'react-router-dom'
 
 const ALlUser = () => {
     const allUser=useLoaderData()
+    const navigate = useNavigate();
     console.log(allUser);
   return (
     <div className='p-12'>
@@ -15,7 +16,7 @@ const ALlUser = () => {
                       <p>{user.email}</p>
                       <p>{user.address.city}</p>
                       <div className="justify-center card-actions">
-                        <button className="btn btn-primary">View Details</button>
+                        <button  onClick={() => navigate(`/users/${user.id}`)} className="btn btn-primary">View Details</button>
                       </div>
                     </div>
                   </div>)
