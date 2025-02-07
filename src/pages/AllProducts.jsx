@@ -10,7 +10,13 @@ const AllProducts = () => {
   const [productPrice, setProductPrice] = useState('');
   const [productDetails, setProductDetails] = useState('');
   const [modal, setModal] = useState(false);
+  const [search, setSearch] = useState('');
   const navigate = useNavigate();
+
+  const filteredProducts = products.filter((product) => {
+    const searchKeyword = search.toLowerCase();
+    return product.name.toLowerCase().includes(searchKeyword);
+  });
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -42,7 +48,7 @@ const AllProducts = () => {
       name: productName,
       data: {
         price: parseFloat(productPrice),
-        details: productDetails || 'No details provided',
+        details: productDetails || 'No details',
       },
     };
 
@@ -55,14 +61,15 @@ const AllProducts = () => {
         setProductDetails('');
         setModal(false);
       })
+      .catch(() => {
+        Swal.fire('Error', 'Failed to add the product.', 'error');
+      });
   };
 
-
   return (
-    <div className="p-1 lg:p-10">
-      <button onClick={() => setModal(true)} className="btn mb-4  btn-primary">
-        Add New Product
-      </button>
+    <div className="p-2 lg:p-10">
+
+
       {modal && (
         <div className="fixed inset-0 z-40 flex justify-center items-center  bg-opacity-50 backdrop-blur-sm">
           <div className="bg-white p-6 rounded-lg shadow-lg w-96">
@@ -70,15 +77,9 @@ const AllProducts = () => {
             <form onSubmit={handleAddProduct}>
               <div className="mb-4">
                 <label className="block text-sm font-semibold mb-2">Product Name</label>
-                <input
-                  type="text"
-                  value={productName}
-                  onChange={(e) => setProductName(e.target.value)}
-                  className="w-full px-4 py-2 border rounded-lg"
-                  required
-                />
+                <input type="text" value={productName} onChange={(e) => setProductName(e.target.value)}
+                  className="w-full px-4 py-2 border rounded-lg" required />
               </div>
-
               <div className="mb-4">
                 <label className="block text-sm font-semibold mb-2">Price</label>
                 <input
@@ -89,7 +90,6 @@ const AllProducts = () => {
                   required
                 />
               </div>
-
               <div className="mb-4">
                 <label className="block text-sm font-semibold mb-2">Product Details</label>
                 <textarea
@@ -99,24 +99,36 @@ const AllProducts = () => {
                   rows="4"
                 />
               </div>
-
-              <button
-                type="submit"
-                className="w-full bg-blue-500 text-white px-4 py-2 rounded-lg"
-              >
+              <button type="submit" className="w-full cursor-pointer bg-blue-500 text-white px-4 py-2 rounded-lg">
                 Add Product
               </button>
             </form>
-            <button onClick={() => setModal(false)} className="mt-4 w-full bg-gray-500 text-white px-4 py-2 rounded-lg"
-            >
+            <button onClick={() => setModal(false)} className="mt-4 cursor-pointer w-full bg-gray-500 text-white px-4 py-2 rounded-lg">
               Cancel
             </button>
           </div>
         </div>
       )}
 
+      <h2 className="text-3xl font-semibold text-blue-600 p-3 m-2 text-center">All Product</h2>
+
+      <div className="mb-6 w-[250px] lg:w-[300px] mx-auto">
+        <input
+          type="text"
+          placeholder="Search Product by name"
+          className="w-full bg-white text-black px-4 py-2 border border-gray-300 rounded-lg"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
+
+      <button onClick={() => setModal(true)} className="btn mb-4 btn-primary">
+        Add New Product
+      </button>
+
       <div className="overflow-x-auto text-sm rounded-box border border-base-content/5 bg-base-100">
-        <table className="table  w-full">
+
+        <table className="table w-full">
           <thead>
             <tr>
               <th>#</th>
@@ -125,18 +137,15 @@ const AllProducts = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product, i) => (
+            {filteredProducts.map((product, i) => (
               <tr key={product.id}>
                 <th>{i + 1}</th>
-                <td className='text-[10px] lg:text-sm'>{product.name}</td>
+                <td className="text-[10px] lg:text-sm">{product.name}</td>
                 <td>
-                  <button onClick={() => navigate(`/product/${product.id}`)}
-                    className="btn btn-xs text-white  bg-blue-600"
-                  >
+                  <button onClick={() => navigate(`/product/${product.id}`)} className="btn btn-xs text-white bg-blue-600">
                     Details
                   </button>
-                  <button onClick={() => handleDelete(product.id)}
-                  className="btn btn-xs bg-red-500 text-white">
+                  <button onClick={() => handleDelete(product.id)} className="btn btn-xs bg-red-500 text-white">
                     Delete
                   </button>
                 </td>

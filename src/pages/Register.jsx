@@ -60,17 +60,17 @@ const Register = () => {
   };
 
   return (
-    <div className="py-10 min-h-screen flex items-center justify-center">
+    <div className="py-10 p-3 min-h-screen flex items-center justify-center">
       <div className="card w-[300px] lg:w-[400px] p-6 border-[#676767] border bg-white dark:bg-gray-100 shadow-xl rounded-lg">
-        <h2 className="text-2xl font-bold text-center text-indigo-500 mb-6">Create an Account</h2>
-        <form onSubmit={handleCreateUser} className="space-y-4">
+        <h2 className="text-xl lg:text-2xl font-bold text-center text-indigo-500 mb-6">Create an Account</h2>
+        <form onSubmit={handleCreateUser} className="space-y-2 lg:space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-600">Name</label>
             <input
               type="text"
               name="name"
               placeholder="Your Name"
-              className="w-full px-4 py-2 mt-2 border border-[#676767] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+              className="w-full px-2 lg:px-4 py-1 lg:py-2 mt-2 border border-[#676767] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
               required
             />
           </div>
@@ -80,7 +80,7 @@ const Register = () => {
               type="text"
               name="photo"
               placeholder="Photo URL"
-              className="w-full px-4 py-2 mt-2 border border-[#676767] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+              className="w-full px-2 lg:px-4 py-1 lg:py-2 mt-2 border border-[#676767] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
               required
             />
           </div>
@@ -90,7 +90,7 @@ const Register = () => {
               type="email"
               name="email"
               placeholder="Email"
-              className="w-full px-4 py-2 mt-2 border border-[#676767] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+              className="w-full px-2 lg:px-4 py-1 lg:py-2 mt-2 border border-[#676767] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
               required
             />
           </div>
@@ -100,30 +100,34 @@ const Register = () => {
               type="password"
               name="password"
               placeholder="Password"
-              className="w-full px-4 py-2 mt-2 border border-[#676767] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+              className="w-full px-2 lg:px-4 py-1 lg:py-2 mt-2 border border-[#676767] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
               required
             />
           </div>
           <div>
-            <button className="w-full cursor-pointer py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg transition">
+            <button className="w-full cursor-pointer text-sm py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg transition">
               Register
             </button>
           </div>
         </form>
         <div className="text-center mt-4">
-          <p className="text-sm text-[#000000]">
+          <p className="text-xs text-[#000000]">
             Already have an account? <Link to="/login" className="underline">Login</Link>
           </p>
         </div>
         <div className="flex items-center justify-center mt-6">
           <button
             onClick={handleGoogle}
-            className="flex items-center justify-center w-full py-2 px-4 bg-white border rounded-lg shadow hover:shadow-lg transition gap-2"
+            className="flex cursor-pointer items-center justify-center w-full py-2 px-4 bg-white border rounded-lg shadow hover:shadow-lg transition gap-2"
           >
-            <span>
-              <img width="25" height="25" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo" />
+            <span>   <img
+              width="25"
+              height="25"
+              src="https://img.icons8.com/color/48/google-logo.png"
+              alt="google-logo"
+            />
             </span>
-            <span className="font-medium text-gray-800">Register with Google</span>
+            <span className="text-xs font-medium text-gray-800">Register with Google</span>
           </button>
         </div>
       </div>

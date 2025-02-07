@@ -39,10 +39,10 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen  flex justify-center items-center py-8">
-      <div className="w-full border-[#676767] border max-w-sm bg-white rounded-xl shadow-xl p-8 space-y-6">
-        <h2 className="text-center text-3xl font-semibold text-indigo-500">Login to Xentro</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="min-h-screen p-3  flex justify-center items-center py-8">
+      <div className="w-[300px] lg:w-full border-[#676767] border max-w-sm bg-white rounded-xl shadow-xl p-5 lg:p-8 lg:space-y-6 space-y-2 ">
+        <h2 className="text-center text-xl lg:text-3xl font-semibold text-indigo-500">Login to Xentro</h2>
+        <form onSubmit={handleSubmit} className="space-y-2 lg:space-y-4">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
@@ -52,7 +52,7 @@ const Login = () => {
               name="email"
               ref={emailRef}
               placeholder="Enter your email"
-              className="w-full px-4 py-2 mt-2 border border-[#676767] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+              className="w-full px-2 lg:px-4 py-1 lg:py-2 mt-2 border border-[#676767] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
               required
             />
           </div>
@@ -65,21 +65,21 @@ const Login = () => {
               type="password"
               name="password"
               placeholder="Enter your password"
-              className="w-full px-4 py-2 mt-2 border border-[#676767] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+              className="w-full px-2 lg:px-4 py-1 lg:py-2 mt-2 border border-[#676767] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
               required
             />
 
           </div>
 
           <div className="form-control mt-6">
-            <button type="submit" className="btn btn-primary w-full py-2 text-lg font-semibold rounded-lg">
+            <button type="submit" className="btn btn-primary btn-sm w-full py-2 text-sm lg:text-lg font-semibold rounded-lg">
               Login
             </button>
           </div>
         </form>
 
         <div className="text-center mt-4">
-          <p className="text-sm text-[#000000]">
+          <p className="text-xs lg:text-sm text-[#000000]">
             Don't have an account?{" "}
             <Link to="/register" className="underline">
               Register
@@ -99,7 +99,7 @@ const Login = () => {
               alt="google-logo"
             />
             </span>
-            <span className="font-medium text-gray-800">Continue with Google</span>
+            <span className="text-xs font-medium text-gray-800">Continue with Google</span>
           </button>
         </div>
       </div>
