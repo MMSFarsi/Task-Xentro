@@ -13,15 +13,15 @@ const ALlUser = () => {
     <div className="p-2 lg:p-8">
       <h2 className="text-3xl font-semibold text-blue-600 p-3 m-2 text-center">All Users</h2>
 
-      <div className="mb-6 w-[250px] lg:w-[300px] mx-auto">
-        <input type="text" placeholder="Search User by name" className="w-full px-4 py-2 bg-white text-black border border-gray-300 rounded-lg"
+      <div className="mb-6 w-[200px] lg:w-[300px] mx-auto">
+        <input type="text" placeholder="Search User by name" className="w-full text-sm px-2 py-2 bg-white text-black border border-gray-300 rounded-lg"
           value={search} onChange={(e) => setSearch(e.target.value)}
         />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-4">
         {filteredUsers.length > 0 ? (
           filteredUsers.map((user) => (
-            <div key={user.id} className="card w-64 bg-base-100 card-lg shadow-sm">
+            <div key={user.id} className="card w-58 lg:w-64 bg-base-100 card-lg shadow-sm">
               <div className="card-body text-[12px]">
                 <h2>
                   <span className="font-semibold">Name: </span> {user.name}

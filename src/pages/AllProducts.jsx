@@ -112,11 +112,11 @@ const AllProducts = () => {
 
       <h2 className="text-3xl font-semibold text-blue-600 p-3 m-2 text-center">All Product</h2>
 
-      <div className="mb-6 w-[250px] lg:w-[300px] mx-auto">
+      <div className="mb-6 w-[200px] lg:w-[300px] mx-auto">
         <input
           type="text"
           placeholder="Search Product by name"
-          className="w-full bg-white text-black px-4 py-2 border border-gray-300 rounded-lg"
+          className="w-full text-sm bg-white text-black px-2 py-2 border border-gray-300 rounded-lg"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />

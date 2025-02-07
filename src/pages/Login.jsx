@@ -45,27 +45,27 @@ const Login = () => {
         <form onSubmit={handleSubmit} className="space-y-2 lg:space-y-4">
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text text-xs lg:text-sm">Email</span>
             </label>
             <input
               type="email"
               name="email"
               ref={emailRef}
               placeholder="Enter your email"
-              className="w-full px-2 lg:px-4 py-1 lg:py-2 mt-2 border border-[#676767] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+              className="w-full px-2 text-xs lg:text-base lg:px-4 py-1 lg:py-2 mt-2 border border-[#676767] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
               required
             />
           </div>
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Password</span>
+              <span className="label-text text-xs lg:text-sm">Password</span>
             </label>
             <input
               type="password"
               name="password"
               placeholder="Enter your password"
-              className="w-full px-2 lg:px-4 py-1 lg:py-2 mt-2 border border-[#676767] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+              className="w-full px-2 text-xs lg:text-base lg:px-4 py-1 lg:py-2 mt-2 border border-[#676767] rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
               required
             />
 
@@ -79,7 +79,7 @@ const Login = () => {
         </form>
 
         <div className="text-center mt-4">
-          <p className="text-xs lg:text-sm text-[#000000]">
+          <p className="text-[10px] lg:text-xs text-[#000000]">
             Don't have an account?{" "}
             <Link to="/register" className="underline">
               Register
@@ -90,7 +90,7 @@ const Login = () => {
         <div className="flex items-center justify-center mt-6">
           <button
             onClick={handleGoogle}
-            className="flex cursor-pointer items-center justify-center w-full py-2 px-4 bg-white border rounded-lg shadow hover:shadow-lg transition gap-2"
+            className="flex cursor-pointer items-center justify-center w-full py-1 lg:py-2 px-2 lg:px-4 bg-white border rounded-lg shadow hover:shadow-lg transition gap-2"
           >
             <span>   <img
               width="25"
