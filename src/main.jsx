@@ -8,7 +8,6 @@ import UserDetails from './pages/UserDetails';
 import AllProducts from './pages/AllProducts';
 import ProductDetails from './pages/ProductDetails';
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +32,7 @@ const router = createBrowserRouter([
         path:"/product/:id" ,
         element:<ProductDetails></ProductDetails>
       },
+   
     ]
   },
 ]);

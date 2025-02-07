@@ -21,11 +21,12 @@ const ProductDetails = () => {
     <div className="p-12">
       <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold mb-4">{product.name}</h2>
-        <p className="text-gray-600 mb-4">
+      
+        <div className="">
+          <h3 className="font-bold mb-2">Product Details:</h3>
+          <p className="text-gray-600 mb-4">
           Price: <span className="font-semibold">{product.data?.price ? `$${product.data.price}` : 'N/A'}</span>
         </p>
-        <div className="border-t pt-4">
-          <h3 className="font-bold mb-2">Product Details:</h3>
           {product.data ? (
             <ul className="list-disc pl-6">
               {Object.entries(product.data).map(([key, value], index) => (

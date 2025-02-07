@@ -14,6 +14,7 @@ const MainLayout = () => {
           <NavLink to="/products" className={linkClass} activeClassName="bg-blue-700">
             Products
           </NavLink>
+    
         </nav>
       </div>
       <div className='col-span-10'>
