@@ -5,18 +5,18 @@ const ALlUser = () => {
     const navigate = useNavigate();
     console.log(allUser);
   return (
-    <div className='p-12'>
-        <h2 className="text-2xl font-black p-3 text-center">All Users</h2>
+    <div className='p-2 lg:p-8'>
+        <h2 className="text-3xl  font-semibold p-3 text-center">All Users</h2>
 
-        <div className='grid grid-cols-4 gap-1'>
+        <div className='grid grid-cols-1 lg:grid-cols-4 gap-4'>
             {
                 allUser.map(user=> <div key={user.id} className="card w-64 bg-base-100 card-lg shadow-sm">
-                    <div className="card-body">
-                      <h2 className="card-title">{user.name}</h2>
-                      <p>{user.email}</p>
-                      <p>{user.address.city}</p>
-                      <div className="justify-center card-actions">
-                        <button  onClick={() => navigate(`/users/${user.id}`)} className="btn btn-primary">View Details</button>
+                    <div className="card-body p- text-[12px]">
+                      <h2 > <span className="font-semibold">Name: </span> {user.name}</h2>
+                      <p> <span className="font-semibold">Email: </span>  {user.email}</p>
+                      <p > <span className="font-semibold">Address: </span>  {user.address.city}</p>
+                      <div className="justify-center mt-5 card-actions">
+                        <button  onClick={() => navigate(`/users/${user.id}`)} className="btn btn-sm btn-primary">View Details</button>
                       </div>
                     </div>
                   </div>)

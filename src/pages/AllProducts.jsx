@@ -9,7 +9,7 @@ const AllProducts = () => {
   const [productName, setProductName] = useState('');
   const [productPrice, setProductPrice] = useState('');
   const [productDetails, setProductDetails] = useState('');
-  const [modal, setModal] = useState(false); 
+  const [modal, setModal] = useState(false);
   const navigate = useNavigate();
 
   const handleDelete = (id) => {
@@ -24,8 +24,7 @@ const AllProducts = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         setProducts(products.filter(product => product.id !== id));
-        axios
-          .delete(`https://api.restful-api.dev/objects/${id}`)
+        axios.delete(`https://api.restful-api.dev/objects/${id}`)
           .then(() => {
             Swal.fire({
               title: "Deleted!",
@@ -60,12 +59,12 @@ const AllProducts = () => {
 
 
   return (
-    <div className="p-12">
-      <button onClick={() => setModal(true)}  className="btn btn-success mb-4">
+    <div className="p-1 lg:p-10">
+      <button onClick={() => setModal(true)} className="btn mb-4  btn-primary">
         Add New Product
       </button>
       {modal && (
-       <div className="fixed inset-0 z-40 flex justify-center items-center  bg-opacity-50 backdrop-blur-sm">
+        <div className="fixed inset-0 z-40 flex justify-center items-center  bg-opacity-50 backdrop-blur-sm">
           <div className="bg-white p-6 rounded-lg shadow-lg w-96">
             <h2 className="text-2xl font-bold mb-4">Add a New Product</h2>
             <form onSubmit={handleAddProduct}>
@@ -92,7 +91,7 @@ const AllProducts = () => {
               </div>
 
               <div className="mb-4">
-                <label className="block text-sm font-semibold mb-2">Product Details (Optional)</label>
+                <label className="block text-sm font-semibold mb-2">Product Details</label>
                 <textarea
                   value={productDetails}
                   onChange={(e) => setProductDetails(e.target.value)}
@@ -108,7 +107,7 @@ const AllProducts = () => {
                 Add Product
               </button>
             </form>
-            <button onClick={() => setModal(false)}className="mt-4 w-full bg-gray-500 text-white px-4 py-2 rounded-lg"
+            <button onClick={() => setModal(false)} className="mt-4 w-full bg-gray-500 text-white px-4 py-2 rounded-lg"
             >
               Cancel
             </button>
@@ -116,11 +115,11 @@ const AllProducts = () => {
         </div>
       )}
 
-      <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
-        <table className="table w-full">
+      <div className="overflow-x-auto text-sm rounded-box border border-base-content/5 bg-base-100">
+        <table className="table  w-full">
           <thead>
             <tr>
-              <th>Serial Number</th>
+              <th>#</th>
               <th>Product Name</th>
               <th>Action</th>
             </tr>
@@ -129,18 +128,15 @@ const AllProducts = () => {
             {products.map((product, i) => (
               <tr key={product.id}>
                 <th>{i + 1}</th>
-                <td>{product.name}</td>
+                <td className='text-[10px] lg:text-sm'>{product.name}</td>
                 <td>
-                  <button
-                    onClick={() => navigate(`/product/${product.id}`)}
-                    className="btn mr-2 btn-primary"
+                  <button onClick={() => navigate(`/product/${product.id}`)}
+                    className="btn btn-xs text-white  bg-blue-600"
                   >
                     Details
                   </button>
-                  <button
-                    onClick={() => handleDelete(product.id)}
-                    className="btn bg-red-500 text-white"
-                  >
+                  <button onClick={() => handleDelete(product.id)}
+                  className="btn btn-xs bg-red-500 text-white">
                     Delete
                   </button>
                 </td>
