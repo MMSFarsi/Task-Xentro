@@ -6,9 +6,9 @@ const ALlUser = () => {
     console.log(allUser);
   return (
     <div className='p-2 lg:p-8'>
-        <h2 className="text-3xl  font-semibold p-3 text-center">All Users</h2>
+        <h2 className="text-3xl  font-semibold text-blue-600 p-3 m-2 text-center">All Users</h2>
 
-        <div className='grid grid-cols-1 lg:grid-cols-4 gap-4'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
             {
                 allUser.map(user=> <div key={user.id} className="card w-64 bg-base-100 card-lg shadow-sm">
                     <div className="card-body p- text-[12px]">

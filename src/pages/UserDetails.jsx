@@ -18,7 +18,7 @@ const UserDetails = () => {
 
     return (
         <div className="p-2 lg:p-12 max-w-3xl mx-auto">
-            <h2 className="text-xl lg:text-2xl font-semibold p-3 text-center">User Details: {user.id}</h2>
+            <h2 className="text-xl lg:text-2xl text-blue-600 font-semibold p-3 text-center">User Details: {user.id}</h2>
             <div className="bg-white  text-[10px] lg:text-sm shadow-md border border-gray-200 rounded-lg p-6">
                 <p className="mb-4"><span className="font-semibold">Name:</span> {user.name}</p>
                 <p className="mb-4"><span className="font-semibold">Username:</span> {user.username}</p>

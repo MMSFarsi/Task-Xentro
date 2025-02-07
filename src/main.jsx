@@ -3,20 +3,25 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainLayout from './layout/MainLayout';
-import ALlUser from './pages/ALlUser';
+import AllUser from './pages/AllUser';
 import UserDetails from './pages/UserDetails';
 import AllProducts from './pages/AllProducts';
 import ProductDetails from './pages/ProductDetails';
+import Login from './pages/Login';
+import AuthProvider from './provider/AuthProvider';
+import Error from './pages/Error';
+import Register from './pages/Register';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement:<Error></Error>,
     children:[
     
       {
-        path:"/alluser",
-        element:<ALlUser></ALlUser>,
+        path:"/",
+        element:<AllUser></AllUser>,
         loader:()=> fetch('https://jsonplaceholder.typicode.com/users')
       },
       {
@@ -32,6 +37,15 @@ const router = createBrowserRouter([
         path:"/product/:id" ,
         element:<ProductDetails></ProductDetails>
       },
+      {
+        path:"/login",
+        element:<Login></Login>
+      },
+      {
+        path:'/register',
+        element:<Register></Register>
+      }
+      
    
     ]
   },
@@ -39,6 +53,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+  <AuthProvider>
   <RouterProvider router={router} />
+  </AuthProvider>
   </StrictMode>,
 )
